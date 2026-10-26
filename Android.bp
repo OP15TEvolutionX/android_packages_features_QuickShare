@@ -1,0 +1,16 @@
+// Copyright (C) 2026 Evolution X
+// SPDX-License-Identifier: Apache-2.0
+package {
+    default_applicable_licenses: ["evolution_quick_share_license"],
+}
+license {
+    name: "evolution_quick_share_license",
+    visibility: [":__subpackages__"],
+    license_kinds: ["SPDX-license-identifier-Apache-2.0"],
+    license_text: ["LICENSE"],
+}
+filegroup {
+    name: "evolution-quick-share-server-srcs",
+    srcs: ["server/src/**/*.java"],
+    visibility: ["//frameworks/base/services/core:__pkg__"],
+}
