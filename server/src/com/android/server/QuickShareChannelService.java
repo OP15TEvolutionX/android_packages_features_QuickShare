@@ -94,8 +94,9 @@ public final class QuickShareChannelService extends SystemService {
         try {
             PackageInfo info = getContext().getPackageManager().getPackageInfo(PACKAGE, 0);
             WifiManager wifi = getContext().getSystemService(WifiManager.class);
-            long version = info.getLongVersionCode();
-            if ((version == 27391 || version == 60715) && info.applicationInfo != null
+            // No app version check: the request layout is pinned by the native AIDL v2
+            // check in attachBackend() and validated by channelOffset()/configOffset().
+            if (info.applicationInfo != null
                     && wifi != null && "RU".equals(wifi.getCountryCode())) {
                 for (WifiAvailableChannel channel : wifi.getAllowedChannels(
                         WifiScanner.WIFI_BAND_5_GHZ_WITH_DFS,
